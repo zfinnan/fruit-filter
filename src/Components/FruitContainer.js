@@ -10,13 +10,13 @@ class FruitContainer extends Component {
 
         this.state = {
             // initialize the fruit list to the full list passed into props
-            fruitsToDisplay: this.props.fruits,
+            fruitsToDisplay: props.fruits,
             // initialize the filter value to empty string
             filterValue: ''
         };      
     }
 
-    handleFilterChange = () => {
+    handleFilterChange = (e) => {
         e.preventDefault();
         let filterValue = e.target.value;
         // remove fruits that don't container filter value
@@ -30,6 +30,10 @@ class FruitContainer extends Component {
         // console.logs must go above returns
         // Inside of Input Component, to access props, I will say props.value
         // Inside of Input Component, to access props, I will say props.fruits
+        console.log('---- state ----')
+        console.log(this.state.fruitsToDisplay);
+        console.log('---- props ----')
+        console.log(this.props.fruits);
         return (
             <div>
                 <Input value={this.state.filterValue} onChange={this.handleFilterChange}/>
